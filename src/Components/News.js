@@ -11,6 +11,8 @@ export class News extends Component {
         <Newsitem />
         <Newsitem />
         <Newsitem />
+        <Newsitem />
+
 
       </div>
     )
