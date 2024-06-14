@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import Newsitem from './Newsitem'
-
-export class News extends Component {
-  article =  [
+{
+    "status": "ok",
+    "totalResults": 3092,
+    "articles": [
       {
         "source": {
           "id": "bbc-news",
@@ -1304,31 +1303,5 @@ export class News extends Component {
         "content": "TOPSHOT - Steve Smith of the Toronto Nationals stands on the pitch at the Maple Leaf Cricket Club in ... [+] King City, Ontario during the first inning of the Nationals Global T20 match against the V… [+5798 chars]"
       }
     ]
-  
-  constructor(){
-    super();
-    console.log("I am from news components")
-    this.state =  { 
-      article : this.article,
-      loading : false
-    }
   }
-  render() {
-    return (
-      <div className='container p-2 my-5'>
-        <h1>DailyNews - Top Headlines</h1>
-        <div className="cards grid md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 2xl:grid-cols-4"> 
-        {this.state.article.map((elem)=>{
-          return   <Newsitem key={elem.url}  title={elem.title} description={elem.description} imageUrl="https://ichef.bbci.co.uk/images/ic/1200x675/p0hwk22m.jpg" newsUrl={elem.url}/>
-
-        //  return <Newsitem key={elem.url}  title={elem.title.slice(0, 30)} description={elem.description.slice(0, 80)} imageUrl="https://ichef.bbci.co.uk/images/ic/1200x675/p0hwk22m.jpg" newsUrl={elem.url}/>
-          
-        })}
-        
-        </div>
-      </div>
-    )
-  }
-}
-
-export default News
+ 
