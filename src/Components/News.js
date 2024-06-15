@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Newsitem from './Newsitem'
 
 export class News extends Component {
-  article = [] //constuctor throgh give data in the array
+  article = [] //constuctor throgh give data in the arra
   
   constructor(){
     super();
