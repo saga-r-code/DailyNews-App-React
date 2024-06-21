@@ -8,12 +8,14 @@ export class News extends Component {
 
   static defaultProps = {
     country: "in",
-    pageSize: 12, 
+    pageSize: 12,
+    category: "general" 
   }
 
   static propTypes = {
     country: PropTypes.string,
-    pageSize: PropTypes.number 
+    pageSize: PropTypes.number,
+    category: PropTypes.string,
   }
 
 
@@ -29,7 +31,7 @@ export class News extends Component {
 
   //Fetching the Api and pass data and update data throgh this.setState
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=1&pageSize=${this.props.pageSize}`;
 
     this.setState({ loading: true });
 
@@ -46,7 +48,7 @@ export class News extends Component {
 
   handlePrevClick = async () => {
     console.log("previous");
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -63,7 +65,7 @@ export class News extends Component {
     console.log("next");
     if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)))
        {
-      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=479ac70180ff4770a28cd9a4c23752c6&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
@@ -91,16 +93,9 @@ export class News extends Component {
           {!this.state.loading && this.state.article.map((elem) => {
             //show all description on the web page
             return (
-              <Newsitem
-                key={elem.url}
-                title={elem.title ? elem.title : " "}
-                description={elem.description ? elem.description : " "}
-                imageUrl={
-                  !elem.urlToImage
-                    ? "https://wallpapers.com/images/featured/newspaper-aesthetic-6zy4tj738voyh9fx.jpg"
-                    : elem.urlToImage
-                }
-                newsUrl={elem.url}
+              <Newsitem key={elem.url} title={elem.title ? elem.title : " "} description={elem.description ? elem.description : " "} 
+              imageUrl={!elem.urlToImage? "https://wallpapers.com/images/featured/newspaper-aesthetic-6zy4tj738voyh9fx.jpg": elem.urlToImage}
+              newsUrl={elem.url}
               />
             );
 

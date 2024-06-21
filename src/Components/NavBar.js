@@ -1,32 +1,31 @@
+
 import React, { Component } from 'react'
 import Category from './Category'
+import { Link } from 'react-router-dom';
 
 export class NavBar extends Component {
   constructor(){
     super()
     this.state = {
       showCategory : false,
-      showMenu : false,
     };
   }
 
   toggleMode = () =>{
-    // this.setState(prevState=>({
-    //   showCategory : !prevState.showCategory
-    // }))
-    this.setState({
-      showCategory : !this.state.showCategory, //flip the bool value false to true or ture to false
-      
-      
-    })
+    // this.setState(prevState=>({ showCategory : !prevState.showCategory})), //u can aslo use this 
+    this.setState({ 
+      showCategory : !this.state.showCategory
+    },
+    ()=>{ //callback use !!!
+      if(this.state.showCategory && window.innerWidth < 768){ // window.innerWidth < 768 only apply on mobile device otherwise normal
+        setTimeout(() => {
+         this.setState({showCategory : false})
+        }, 2800);
+      }
+    }
+  )
   }
 
-  toggleMenu = () =>{
-    this.setState({
-      showMenu : !this.state.showMenu,
-      showCategory : false,
-    });
-  }
 
   render() {
     return (
@@ -44,16 +43,16 @@ export class NavBar extends Component {
 
     <span className="text-xl font-bold">DailyNews</span>
     </div>
-   <ul className={`absolute top-20 text-base ${this.state.showMenu ? 'block' : 'hidden'} md:text-lg md:static md:flex md:items-center md:w-auto`}>
+   <ul className={`hidden  left-0 top-20 text-base md:bg-transparent md:static md:flex md:items-center md:w-auto`}>
     <li>
-      <a className="block py-2 px-4 hover:text-gray-900" href="/">Home</a>
+      <Link className="block py-2 px-4 hover:text-gray-900" to="/">Home</Link>
     </li>
     <li>
-      <a className="block py-2 px-4 hover:text-gray-900" href="/">About</a>
+      <Link className="block py-2 px-4 hover:text-gray-900" to="/about">About</Link>
     </li>
     <li  className="block py-2 px-4 hover:text-gray-900 cursor-pointer" onClick={this.toggleMode}>News &darr;</li>
   </ul>
-  <button className="menu-bar md:hidden flex items-center px-3 py-2 rounded text-gray-600 hover:text-gray-900 cursor-pointer" id="menu-button" onClick={this.toggleMenu}>
+  <button className="menu-bar md:hidden flex items-center px-3 py-2 rounded text-gray-600 hover:text-gray-900 cursor-pointer" id="menu-button" onClick={this.toggleMode}>
     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
