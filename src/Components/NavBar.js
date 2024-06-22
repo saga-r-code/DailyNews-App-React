@@ -42,7 +42,7 @@ export class NavBar extends Component {
 
     <span className="text-xl font-bold">DailyNews</span>
     </div>
-   <ul className={`hidden  left-0 top-20 text-base md:bg-transparent md:static md:flex md:items-center md:w-auto`}>
+   <ul className={`hidden font-semibold left-0 top-20 text-base md:bg-transparent md:static md:flex md:items-center md:w-auto`}>
     <li>
       <Link className="block py-2 px-4 hover:text-gray-900" to="/">Home</Link>
     </li>

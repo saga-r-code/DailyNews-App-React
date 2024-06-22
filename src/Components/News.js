@@ -94,8 +94,8 @@ export class News extends Component {
             //show all description on the web page
             return (
               <Newsitem key={elem.url} title={elem.title ? elem.title : " "} description={elem.description ? elem.description : " "} 
-              imageUrl={!elem.urlToImage? "https://wallpapers.com/images/featured/newspaper-aesthetic-6zy4tj738voyh9fx.jpg": elem.urlToImage}
-              newsUrl={elem.url}
+              imageUrl={!elem.urlToImage? "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_960_720.jpg": elem.urlToImage}
+              newsUrl={elem.url} author={!elem.author ? "Unknown" : elem.author } date={elem.publishedAt} source={elem.source.name}
               />
             );
 
