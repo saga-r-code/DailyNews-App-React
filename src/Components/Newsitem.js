@@ -5,10 +5,9 @@ export class Newsitem extends Component {
   render() {
     let { title, description, imageUrl, newsUrl, author, date, source } = this.props;
     return (
-      <div className="relative flex w-full max-w-[26rem] mt-4 flex-col rounded-xl  text-gray-700 shadow-xl">
-        
+      <div className="relative flex w-full max-w-[26rem] mt-4 flex-col rounded-xl  text-gray-700 shadow-xl"> 
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 text-white shadow-lg">
-         <span class="absolute top-1 left-3 rounded-full bg-[red] p-1 px-2 text-sm text-red-50">{source}</span>
+         <span className="absolute top-1 left-3 rounded-full bg-[red] p-1 px-2 text-sm text-red-50">{source}</span>
          <Link to={newsUrl}  rel="noreferrer" target="_blank"><img src={imageUrl} alt="News Photos" /></Link>
         </div>
         <div className="p-6">
@@ -16,7 +15,7 @@ export class Newsitem extends Component {
             <h5 className="text-xl font-semibold text-black">{title}</h5>
           </div>
           <p className="mt-3 text-base font-medium text-gray-800">{description}</p>
-          <h5 class="font-medium mt-6 text-gray-400 hover:text-gray-600">By {author} on {new Date(date).toUTCString()}</h5> 
+          <h5 className="font-medium mt-6 text-gray-400 hover:text-gray-600">By {author} on {new Date(date).toUTCString()}</h5> 
           {/*  {new Date(date).toUTCString()}- new Date(date) is create the new object and toUTCString() for the formate string*/}
           <div className="my-3">
             <Link
