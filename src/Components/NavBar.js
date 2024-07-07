@@ -16,7 +16,7 @@ export class NavBar extends Component {
       showCategory : !this.state.showCategory
     },
     ()=>{ //callback use !!!
-      if(this.state.showCategory && window.innerWidth < 768){ // window.innerWidth < 768 only apply on mobile device otherwise normal
+      if(this.state.showCategory && window.innerWidth < 640){ // window.innerWidth < 768 only apply on mobile device otherwise normal
         setTimeout(() => {
          this.setState({showCategory : false})
         }, 2800);
@@ -42,7 +42,7 @@ export class NavBar extends Component {
 
     <span className="text-xl font-bold">DailyNews</span>
     </div>
-   <ul className={`hidden font-semibold left-0 top-20 text-base md:bg-transparent md:static md:flex md:items-center md:w-auto`}>
+   <ul className={`hidden font-semibold left-0 top-20 text-base sm:bg-transparent sm:static sm:flex sm:items-center sm:w-auto`}>
     <li>
       <Link className="block py-2 px-4 hover:text-gray-900" to="/">Home</Link>
     </li>
@@ -51,7 +51,7 @@ export class NavBar extends Component {
     </li>
     <li  className="block py-2 px-4 hover:text-gray-900 cursor-pointer" onClick={this.toggleMode}>News &darr;</li>
   </ul>
-  <button className="menu-bar md:hidden flex items-center px-3 py-2 rounded text-gray-600 hover:text-gray-900 cursor-pointer" id="menu-button" onClick={this.toggleMode}>
+  <button className="menu-bar sm:hidden flex items-center px-3 py-2 rounded text-gray-600 hover:text-gray-900 cursor-pointer" id="menu-button" onClick={this.toggleMode}>
     <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>

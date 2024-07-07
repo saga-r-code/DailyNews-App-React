@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default class Category extends Component {
   render() {
     return (
-      <div className="z-10 menu w-[80%] m-auto">
+      <div className="z-10  menu w-[80%] m-auto">
         <ul className=" flex flex-col gap-5 justify-end items-center 2xl:px-7 py-3 md:flex-row md:gap-1">
         <li><Link className="block md:hidden py-2 px-4 hover:text-gray-900" to="/">Home</Link></li>
         <li> <Link className="block md:hidden py-2 px-4 hover:text-gray-900" to="/About">About</Link></li>
