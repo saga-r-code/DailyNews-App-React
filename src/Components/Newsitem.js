@@ -7,7 +7,7 @@ export class Newsitem extends Component {
     return (
       <div className="relative flex w-full max-w-[26rem] mt-4 flex-col rounded-xl  text-gray-700 shadow-xl"> 
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-blue-gray-500 text-white shadow-lg">
-         <span className="absolute top-1 left-3 rounded-full bg-[red] p-1 px-2 text-sm text-red-50">{source}</span>
+         <span className="absolute top-1 left-3 rounded-full bg-red-700 p-1 px-2 text-sm text-red-50">{source}</span>
          <Link to={newsUrl}  rel="noreferrer" target="_blank"><img src={imageUrl} alt="News Photos" /></Link>
         </div>
         <div className="p-6">
