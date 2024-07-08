@@ -14,15 +14,7 @@ export class NavBar extends Component {
     // this.setState(prevState=>({ showCategory : !prevState.showCategory})), //u can aslo use this 
     this.setState({ 
       showCategory : !this.state.showCategory
-    },
-    ()=>{ //callback use !!!
-      if(this.state.showCategory && window.innerWidth < 640){ // window.innerWidth < 768 only apply on mobile device otherwise normal
-        setTimeout(() => {
-         this.setState({showCategory : false})
-        }, 2800);
-      }
-    }
-  )
+    })
   }
 
 
@@ -59,7 +51,7 @@ export class NavBar extends Component {
 
 </nav>
     <hr className='border-2 '/>
-      {this.state.showCategory && <Category />}
+      {this.state.showCategory && <Category toggleMode={this.toggleMode}/>}
     
       </>
     )

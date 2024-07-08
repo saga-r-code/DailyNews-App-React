@@ -31,7 +31,7 @@ export class News extends Component {
   //Fetching the Api and pass data and update data throgh this.setState
    updatenews = async ()=> {
     this.props.setProgress(10);
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
 
     let data = await fetch(url);
@@ -54,7 +54,7 @@ export class News extends Component {
 
   fatchMore = async () => {
     this.setState({ page: this.state.page + 1 });
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -88,7 +88,7 @@ export class News extends Component {
           loader={<Spinner />}
         >
           <div className="container p-2 my-3 2xl:w-[80%] 2xl:m-auto">
-            <div className="cards grid md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 2xl:grid-cols-4">
+            <div className="cards grid  md:grid-cols-2 md:gap-x-3 lg:grid-cols-3 2xl:grid-cols-4">
               {this.state.article.map((elem) => {
                 //show all description on the web page
                 return (
