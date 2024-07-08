@@ -1,32 +1,21 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Category from "./Category";
 
-export class News extends Component {
-  static defaultProps = {
-    country: "in",
-    pageSize: 12,
-    category: "general",
-  };
+const News = ()=> {
+  const [article, setArticle] = useState([second])
+const [loading, setLoading] = useState(false)
+const [page, setPage] = useState(1)
+const [totalResults, setTotalResults] = useState(0)
+document.title = `${capitalizeFirstLetter(Category)} - DailyNews`
 
-  static propTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string,
-  };
 
-  constructor() {
-    super();
-    console.log("I am from news components");
-    this.state = {
-      article: [], // article : [],// pass to article = [] varaible
-      loading: false,
-      page: 1,
-      totalResults: 0,
-    };
-  }
+  const capitalizeFirstLetter = (string)=> {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
   //Fetching the Api and pass data and update data throgh this.setState
    updatenews = async ()=> {
@@ -64,7 +53,6 @@ export class News extends Component {
     });
   };
 
-  render() {
     return (
       <>
         <div className=" 2xl:w-[80%] 2xl:m-auto">
@@ -87,7 +75,7 @@ export class News extends Component {
           }
           loader={<Spinner />}
         >
-          <div className="container p-2 my-3 2xl:w-[80%] 2xl:m-auto">
+          <div className="container p-2 my-3 sm:flex sm:justify-center sm:items-center 2xl:w-[80%] 2xl:m-auto">
             <div className="cards grid  md:grid-cols-2 md:gap-x-3 lg:grid-cols-3 2xl:grid-cols-4">
               {this.state.article.map((elem) => {
                 //show all description on the web page
@@ -116,7 +104,19 @@ export class News extends Component {
         </InfiniteScroll>
       </>
     );
-  }
+  
 }
+
+News.defaultProps = {
+  country: "in",
+  pageSize: 12,
+  category: "general",
+};
+
+News.propTypes = {
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+  category: PropTypes.string,
+};
 
 export default News;
