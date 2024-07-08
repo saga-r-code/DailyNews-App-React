@@ -11,7 +11,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-2 px-4 text-lg text-gray-700 2xl:w-[80%] m-auto">
+      <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-2 px-4 text-lg text-gray-700 2xl:w-[80%] m-auto ">
         <div className="flex items-center">
           <svg className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" fill="#f5f5f5" stroke="#333" strokeWidth="2" />
@@ -37,7 +37,7 @@ const NavBar = () => {
           </svg>
         </button>
       </nav>
-      <hr className='border-2' />
+      <hr className='hidden md:block border-2' />
       {showCategory && <Category toggleMode={toggleMode} />}
     </>
   );
