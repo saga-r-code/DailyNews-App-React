@@ -22,14 +22,14 @@ const NavBar = () => {
           </svg>
           <span className="text-xl font-bold">DailyNews</span>
         </div>
-        <ul className={`hidden font-semibold left-0 top-20 text-base sm:bg-transparent sm:static sm:flex sm:items-center`}>
+        <ul className={`hidden font-semibold left-0 top-20 text-base sm:bg-transparent sm:static sm:flex sm:items-center text-slate-500`}>
           <li>
-            <Link className="py-2 px-4 hover:text-gray-900" to="/">Home</Link>
+            <Link className="py-2 px-4 hover:text-black" to="/">Home</Link>
           </li>
           <li>
-            <Link className="py-2 px-4 hover:text-gray-900" to="/about">About</Link>
+            <Link className="py-2 px-4 hover:text-black" to="/about" >About</Link>
           </li>
-          <li className="block py-2 px-4 hover:text-gray-900 cursor-pointer" onClick={toggleMode}>News &darr;</li>
+          <li className="block py-2 px-4 hover:text-black cursor-pointer" onClick={toggleMode}>News &darr;</li>
         </ul>
         <button className="menu-bar sm:hidden flex items-center px-3 py-2 rounded text-gray-600 hover:text-gray-900 cursor-pointer" id="menu-button" onClick={toggleMode}>
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -34,10 +34,11 @@ const [totalResults, setTotalResults] = useState(0)
   };
 
   useEffect(() => {
-  document.title = `${capitalizeFirstLetter(category)} - DailyNews`;
+  document.title = `NewsHub - ${capitalizeFirstLetter(category)}`;
 
     updateNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    /* eslint jsx-a11y/alt-text:0 react/jsx-no-duplicate-props:0 */
   }, [page]);
 
 
