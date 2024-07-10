@@ -20,7 +20,7 @@ const NavBar = () => {
             <path d="M14 16h4" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             <rect x="14" y="12" width="4" height="4" fill="#333" rx="1" ry="1" />
           </svg>
-          <span className="text-xl font-bold">DailyNews</span>
+          <span className="text-xl font-bold">NewsHub</span>
         </div>
         <ul className={`hidden font-semibold left-0 top-20 text-base sm:bg-transparent sm:static sm:flex sm:items-center text-slate-500`}>
           <li>

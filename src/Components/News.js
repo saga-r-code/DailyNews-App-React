@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
 import Spinner from "./Spinner";
@@ -43,8 +44,8 @@ const [totalResults, setTotalResults] = useState(0)
 
 
   const fetchMoreNews = async () => {
+    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page }&pageSize=${pageSize}`;
     setPage(page + 1);
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
     const data = await fetch(url);
     const parsedData = await data.json();
 
@@ -57,7 +58,7 @@ const [totalResults, setTotalResults] = useState(0)
       <>
         <div className=" 2xl:w-[80%] 2xl:m-auto">
           <h1 className="text-3xl font-bold  p-2 mt-5 mx-5 ">
-            DailyNews - Top {capitalizeFirstLetter(category)} Headlines
+            NewsHub - Top {capitalizeFirstLetter(category)} Headlines
           </h1>
         </div>
 
