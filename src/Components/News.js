@@ -29,7 +29,7 @@ const [totalResults, setTotalResults] = useState(0)
       setProgress(70);
       console.log(parsedData);
 
-      setArticles(parsedData.articles);
+      setArticle(parsedData.articles);
       setTotalResults(parsedData.totalResults);
     } catch (error) {
       console.error("Error fetching news data:", error);
