@@ -22,25 +22,27 @@ const [totalResults, setTotalResults] = useState(0)
     setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
     setLoading(true);
+    try {
+      const data = await fetch(url);
+      setProgress(40);
+      const parsedData = await data.json();
+      setProgress(70);
+      console.log(parsedData);
 
-    const data = await fetch(url);
-    setProgress(40);
-    const parsedData = await data.json();
-    setProgress(70);
-    console.log(parsedData);
-
-    setArticle(parsedData.articles);
-    setTotalResults(parsedData.totalResults);
-    setLoading(false);
-    setProgress(100);
+      setArticles(parsedData.articles);
+      setTotalResults(parsedData.totalResults);
+    } catch (error) {
+      console.error("Error fetching news data:", error);
+    } finally {
+      setLoading(false);
+      setProgress(100);
+    }
   };
 
   useEffect(() => {
     updateNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    /* eslint jsx-a11y/alt-text:0 react/jsx-no-duplicate-props:0 */
-  }, []);
-
+  }, [country, category, apikey, page, pageSize]);
 
   const fetchMoreNews = async () => {
     const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page }&pageSize=${pageSize}`;
