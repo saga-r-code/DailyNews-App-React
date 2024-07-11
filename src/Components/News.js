@@ -43,9 +43,9 @@ const News = ({ country = "in", pageSize = 12, category = "general", apikey, set
   }, [country, category, apikey, page, pageSize]);
 
   const fetchMoreNews = async () => {
-    const nextPage = page + 1;
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${nextPage}&pageSize=${pageSize}`;
-    setPage(nextPage);
+    setPage(page + 1)
+    const url = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apikey}&page=${page}&pageSize=${pageSize}`;
+   
     try {
       const data = await fetch(url);
       const parsedData = await data.json();
