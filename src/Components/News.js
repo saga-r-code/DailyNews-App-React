@@ -40,7 +40,7 @@ const News = ({ country = "in", pageSize = 12, category = "general", apikey, set
     document.title = `NewsHub - ${capitalizeFirstLetter(category)}`
     updateNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [country, category, apikey, page, pageSize]);
+  }, [country, category, page, pageSize]);
 
   const fetchMoreNews = async () => {
     setPage(page + 1)
@@ -55,6 +55,8 @@ const News = ({ country = "in", pageSize = 12, category = "general", apikey, set
       console.error("Error fetching more news data:", error);
     }
   };
+
+  
 
   return (
     <>
@@ -75,16 +77,12 @@ const News = ({ country = "in", pageSize = 12, category = "general", apikey, set
       >
         <div className="container p-2 my-3 sm:flex sm:justify-center sm:items-center 2xl:w-[80%] 2xl:m-auto">
           <div className="cards grid md:grid-cols-2 md:gap-x-3 lg:grid-cols-3 2xl:grid-cols-4">
-            {articles.map((elem) => (
+            {articles.map((elem,index) => (
               <Newsitem
-                key={elem.url}
+                key={`${elem.url}-${index}`}
                 title={elem.title ? elem.title : " "}
                 description={elem.description ? elem.description : " "}
-                imageUrl={
-                  !elem.urlToImage
-                    ? "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_960_720.jpg"
-                    : elem.urlToImage
-                }
+                imageUrl={ !elem.urlToImage ? "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_960_720.jpg" : elem.urlToImage}
                 newsUrl={elem.url}
                 author={!elem.author ? "Unknown" : elem.author}
                 date={elem.publishedAt}
